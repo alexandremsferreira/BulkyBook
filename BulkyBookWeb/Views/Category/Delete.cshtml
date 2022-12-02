@@ -1,0 +1,43 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="row pt-5">
+    <div class="col-6">
+        <form method="post"  class="bg-white p-3 shadow p-3 mb-5 rounded">
+                <div class="form-group mb-2">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input asp-for="Name" type="text" class="form-control" disabled />
+                </div>
+                <div class="form-group mb-2">
+                    <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    <input asp-for="DisplayOrder" type="number" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                <button type="submit" asp-controller="Category" asp-action="Delete" class="btn btn-danger btn-sm" role="button"><i class="bi bi-trash"></i> Deletar</button>
+                </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <div asp-validation-summary="All" class="mb-2 text-danger"> </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="text-right">
+            <a class="btn btn-light btn-sm" asp-controller="Category" asp-action="Index" role="button"><i class="bi bi-arrow-left-short"></i> Voltar</a>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+      <partial name="_ValidationScriptsPartial" />;
+    }
+}
+

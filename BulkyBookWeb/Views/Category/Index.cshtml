@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Category";
+}
+
+<div class="row mt-5 mb-3">
+    <div class="col-6">
+            <a class="btn btn-primary btn-sm" asp-controller="Category" asp-action="Create" role="button"><i class="bi bi-plus"></i> Criar nova categoria</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-8">
+            <table class="table table-bordered shadow p-3 mb-5 bg-white rounded">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Ordem de exibição</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+           
+                    @foreach (var obj in Model)
+                    {
+                    <tr>
+                        <td>@obj.Id</td>
+                        <td>@obj.Name</td>
+                        <td>@obj.DisplayOrder</td>
+                        <td><a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a></td>
+                        <td><a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a></td>
+                    </tr>
+                    }
+      
+            </tbody>
+        </table>
+    </div>
+</div>
